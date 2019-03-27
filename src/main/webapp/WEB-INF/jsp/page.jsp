@@ -142,7 +142,7 @@
 					</div>
 				
 					<div class="layui-input-inline">
-						<input class="layui-input f_val" lay-verify="required" name="f_val" placeholder="请输入因素数值" autocomplete="off"/>
+						<input class="layui-input f_val" lay-verify="required" name="f_val" placeholder="请输入因素数值" autocomplete="off" style ="margin-bottom: 15px"/>
 					</div>
 					
 						
@@ -393,7 +393,9 @@
 
         $("#addform").click(function () {
             //添加的内容
-            var addform =        	'            <div id="rab" class="itemdiv layui-form-item">\n' +
+            var addform =        	
+            	 '	<div id =rabk>\n'+		
+            	'            <div id="rab" class="itemdiv layui-form-item">\n' +
                 '                <div class="layui-input-inline inheight" style="width: 10px;">\n' +
                 '                    <label>并且：</label><br/>\n' +
                 '                </div>\n' +
@@ -401,22 +403,7 @@
                 '                    <select lay-verify="required" name="factory" id="factory" lay-filter="" lay-search="lay-search">\n' +
                 '                        <option value="" selected="selected">请选择影响因素</option>\n' +
                 '                        <option value="identity">identity</option>\n' +
-               /* '	<option value="" selected="selected">权重级别</option>\n' +
-				'	<option value=">">高</option>\n' +
-				'	<option value="=">等</option>\n' +
-				'	<option value="=">小</option>\n' +*/
-
-                /*  '                     <option value="" selected="selected">字段类型</option>\n' +
-				'				<option value="String">String</option>\n' +
-				'				<option value="Double">Double</option>\n' +
-				'				<option value="Int">Int</option>\n' +
-				'				<option value="Long">Long</option>\n' +
-				'				<option value="Date">Date</option>\n' +
-				'				<option value="Boolean">Boolean</option>\n' + */
-               /*  '                        <option value="" selected="selected">请选择影响因素</option>\n' +
-                '                        <option value="identity">identity</option>\n' +
-                '                        <option value="profile">profile</option>\n' +
-                '                        <option value="tag">tag</option>\n' + */
+               
                 '                    </select>\n' +
                 '                </div>\n' +
                 '                <div class="layui-input-inline">\n' +
@@ -428,34 +415,27 @@
 				'				<option value="Long">Long</option>\n' +
 				'				<option value="Date">Date</option>\n' +
 				'				<option value="Boolean">Boolean</option>\n' +
-			/* 	'	<option value="" selected="selected">权重级别</option>\n' +
-				'	<option value=">">高</option>\n' +
-				'	<option value="=">等</option>\n' +
-				'	<option value="=">小</option>\n' + */
+		
                 '                    </select>\n' +
                 '                </div>\n' +
                 '                <div class="layui-input-inline">\n' +
                 '                    <input class="layui-input f_val" lay-verify="required" name="f_val" placeholder="请输入因素数值" autocomplete="off"/>\n' +
                 '                </div>\n' +
-                '            </div>';
-
-            $("#formpart").after($(addform));
-
-			form.render();
-        });
+                ' 			</div>\n'+
+                '     </div>';
+               
 
 
+    
+    $("#formpart").append($(addform)); 
+	form.render();
+}); 
 
-
-    $("#rabkool").click(function () {
-
-
-        	console.info("deldeeee")
-
-                     $("#rab").remove()
-
-                     form.render();
-             });
+$("#rabkool").click(function () {
+    	console.info("deldeeee")
+                 $("#rabk>div").last().remove();
+                 form.render();
+         }); 
 
 
 
